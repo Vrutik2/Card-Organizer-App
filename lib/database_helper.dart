@@ -31,20 +31,20 @@ class DatabaseHelper {
 // SQL code to create the database table
   Future _onCreate(Database db, int version) async {
     await db.execute('''
-CREATE TABLE $folder (
-$folderId INTEGER PRIMARY KEY,
-$columnSuit TEXT NOT NULL,
-$folderName TECT NOT NULL,
-)
-''');
+      CREATE TABLE $folder (
+      $folderId INTEGER PRIMARY KEY
+      $columnSuit TEXT NOT NULL
+      $folderName TEXT NOT NULL
+      )
+    ''');
     await db.execute('''
       create table $cards (
-      $cardId INTEGER PRIMARY KEY,
-      $columnNum INTEGER NOT NULL,
-      $name TEXT NOT NULL,
-      $folderId FOREIGN KEY,
-        
-       )''');
+      $cardId INTEGER PRIMARY KEY
+      $columnNum INTEGER NOT NULL
+      $name TEXT NOT NULL
+      $folderId FOREIGN KEY
+      )
+    ''');
   }
 
   Future<int> insert(Map<String, dynamic> row) async {
